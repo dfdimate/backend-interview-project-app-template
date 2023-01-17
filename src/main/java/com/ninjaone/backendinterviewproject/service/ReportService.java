@@ -59,7 +59,6 @@ public class ReportService {
         }
 
         ITService deviceFee = items.stream().filter( i -> i.getName().equals(DEVICE_FEE_SERVICE_NAME)).findFirst().orElseThrow(DeviceFeeNotConfiguredException::new);
-        System.out.println(items);
         items.remove(deviceFee);
         List<ReportItem> itemsFactured = items.stream().map( s -> new ReportItem(s.getName(), s.getDevicesServiced().size()*s.getCost())).collect(Collectors.toList());
         itemsFactured.add(new ReportItem(DEVICE_FEE_SERVICE_NAME, devices * deviceFee.getCost() ));

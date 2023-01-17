@@ -87,7 +87,6 @@ public class ReportItemServiceTest {
         Assertions.assertEquals(28.0, response.getTotalCost());
         Assertions.assertEquals(2, response.getReportItemList().size());
 
-        System.out.println(response.getReportItemList());
         Assertions.assertEquals("ANTIVIRUS", response.getReportItemList().get(0).getServiceName());
         Assertions.assertEquals(20.0, response.getReportItemList().get(0).getServiceTotal());
         Assertions.assertEquals("DEVICE FEE", response.getReportItemList().get(1).getServiceName());
