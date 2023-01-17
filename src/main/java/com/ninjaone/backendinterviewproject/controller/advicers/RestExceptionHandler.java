@@ -1,5 +1,6 @@
 package com.ninjaone.backendinterviewproject.controller.advicers;
 
+import com.ninjaone.backendinterviewproject.exceptions.DeviceFeeNotConfiguredException;
 import com.ninjaone.backendinterviewproject.exceptions.DeviceNotFoundException;
 import com.ninjaone.backendinterviewproject.controller.responses.RestControllerErrorTemplate;
 import com.ninjaone.backendinterviewproject.exceptions.ServiceNotAvailableForDeviceException;
@@ -58,6 +59,13 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         String body = "The Service Passed isn't available for the device's type";
 
         return new ResponseEntity<>(new RestControllerErrorTemplate(body, HttpStatus.BAD_REQUEST.value(), "INFORMATION MISMATCH"), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(value = {DeviceFeeNotConfiguredException.class})
+    protected ResponseEntity<Object> handleDeviceFeeNotConfigured() {
+        String body = "The Device Fee has not been configured";
+
+        return new ResponseEntity<>(new RestControllerErrorTemplate(body, HttpStatus.CONFLICT.value(), "INFORMATION MISMATCH"), HttpStatus.CONFLICT);
     }
 
 }

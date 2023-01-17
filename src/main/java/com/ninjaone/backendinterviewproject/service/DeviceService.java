@@ -2,6 +2,7 @@ package com.ninjaone.backendinterviewproject.service;
 
 import com.ninjaone.backendinterviewproject.database.DeviceRepository;
 import com.ninjaone.backendinterviewproject.database.ITServiceRepository;
+import com.ninjaone.backendinterviewproject.exceptions.DeviceFeeNotConfiguredException;
 import com.ninjaone.backendinterviewproject.exceptions.DeviceNotFoundException;
 import com.ninjaone.backendinterviewproject.exceptions.ServiceNotAvailableForDeviceException;
 import com.ninjaone.backendinterviewproject.exceptions.ServiceNotFoundException;
@@ -48,7 +49,7 @@ public class DeviceService {
      * @throws DeviceNotFoundException If there's no device  registered to that ID
      * @throws ServiceNotFoundException If there's no Service  registered to that ID
      */
-    public Device addServiceToDevice(Long deviceId, Long serviceId) throws ServiceNotAvailableForDeviceException, DeviceNotFoundException, ServiceNotFoundException {
+    public Device addServiceToDevice(Long deviceId, Long serviceId) throws ServiceNotAvailableForDeviceException, DeviceNotFoundException, ServiceNotFoundException, DeviceFeeNotConfiguredException {
 
         Device device = repository.findById(deviceId).orElseThrow(DeviceNotFoundException::new);
         ITService service = serviceRepository.findById(serviceId).orElseThrow(ServiceNotFoundException::new);

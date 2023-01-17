@@ -1,5 +1,6 @@
 package com.ninjaone.backendinterviewproject.controller;
 
+import com.ninjaone.backendinterviewproject.exceptions.DeviceFeeNotConfiguredException;
 import com.ninjaone.backendinterviewproject.exceptions.DeviceNotFoundException;
 import com.ninjaone.backendinterviewproject.exceptions.ServiceNotAvailableForDeviceException;
 import com.ninjaone.backendinterviewproject.exceptions.ServiceNotFoundException;
@@ -40,7 +41,7 @@ public class DeviceController {
 
     @PostMapping(path = "/{id}/add-service/{serviceId}")
     @ResponseStatus(HttpStatus.OK)
-    private Device addServiceToDevice(@PathVariable Long id,@PathVariable Long serviceId) throws ServiceNotAvailableForDeviceException, DeviceNotFoundException, ServiceNotFoundException {
+    private Device addServiceToDevice(@PathVariable Long id,@PathVariable Long serviceId) throws ServiceNotAvailableForDeviceException, DeviceNotFoundException, ServiceNotFoundException, DeviceFeeNotConfiguredException {
         return deviceService.addServiceToDevice(id, serviceId);
     }
 

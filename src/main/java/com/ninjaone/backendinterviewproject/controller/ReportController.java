@@ -1,6 +1,8 @@
 package com.ninjaone.backendinterviewproject.controller;
 
 import com.ninjaone.backendinterviewproject.controller.responses.TotalResponse;
+import com.ninjaone.backendinterviewproject.exceptions.DeviceFeeNotConfiguredException;
+import com.ninjaone.backendinterviewproject.model.Report;
 import com.ninjaone.backendinterviewproject.service.ReportService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +22,7 @@ public class ReportController {
     }
 
     @GetMapping
-    public ResponseEntity<TotalResponse> getTotalCosts() {
-        return new ResponseEntity<>(new TotalResponse(reportService.getTotalAmount()), HttpStatus.OK);
+    public ResponseEntity<Report> getTotalCosts() throws DeviceFeeNotConfiguredException {
+        return new ResponseEntity<>(reportService.getTotalAmount(), HttpStatus.OK);
     }
 }

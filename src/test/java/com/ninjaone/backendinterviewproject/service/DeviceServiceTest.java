@@ -2,6 +2,7 @@ package com.ninjaone.backendinterviewproject.service;
 
 import com.ninjaone.backendinterviewproject.database.DeviceRepository;
 import com.ninjaone.backendinterviewproject.database.ITServiceRepository;
+import com.ninjaone.backendinterviewproject.exceptions.DeviceFeeNotConfiguredException;
 import com.ninjaone.backendinterviewproject.exceptions.DeviceNotFoundException;
 import com.ninjaone.backendinterviewproject.exceptions.ServiceNotAvailableForDeviceException;
 import com.ninjaone.backendinterviewproject.exceptions.ServiceNotFoundException;
@@ -122,7 +123,7 @@ public class DeviceServiceTest {
     }
 
     @Test
-    public void givenAnExistingDeviceAndServiceInDBWhenAskingToLinkTheServiceToTheDeviceThenLinkProperly() throws ServiceNotAvailableForDeviceException, DeviceNotFoundException, ServiceNotFoundException {
+    public void givenAnExistingDeviceAndServiceInDBWhenAskingToLinkTheServiceToTheDeviceThenLinkProperly() throws ServiceNotAvailableForDeviceException, DeviceNotFoundException, ServiceNotFoundException, DeviceFeeNotConfiguredException {
         //GIVEN
         Device testDevice = new Device(
                 123,

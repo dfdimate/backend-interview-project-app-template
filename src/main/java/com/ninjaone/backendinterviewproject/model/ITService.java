@@ -109,4 +109,16 @@ public class ITService {
             this.name = this.name.toUpperCase();
         }
     }
+
+    @Override
+    public String toString() {
+        return "ITService{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", cost=" + cost +
+                ", deviceAttributes=" + deviceAttributes +
+                ", devicesServiced=" + devicesServiced +
+                '}';
+    }
 }

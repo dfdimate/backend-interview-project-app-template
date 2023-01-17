@@ -1,17 +1,17 @@
 package com.ninjaone.backendinterviewproject.controller.responses;
 
 public class TotalResponse {
-    private double totalAmount;
+    private Object totalAmount;
 
-    public TotalResponse(double totalAmount) {
+    public TotalResponse(Object totalAmount) {
         this.totalAmount = totalAmount;
     }
 
-    public double getTotalAmount() {
+    public Object getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(double totalAmount) {
+    public void setTotalAmount(Object totalAmount) {
         this.totalAmount = totalAmount;
     }
 }
